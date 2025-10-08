@@ -1,5 +1,5 @@
-#1/bin/bash/
+#!/bin/bash/
 echo "Rahim:: Hi Robert"
 echo "Robert::hello Rahim"
 echo "Rahim::how r u doing"
-echo " Robert::i am good, how r u?"
+echo "Robert::i am good, how r u?"
