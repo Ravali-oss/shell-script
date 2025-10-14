@@ -1,11 +1,13 @@
 #!/bin/bash
-uid = $(id -u)
+uid=$(id -u)
 if [ "$uid" -ne 0 ]
 then
   echo "You need to run this script as root user"
   exit 1
 fi
+
 dnf list installed mysql
+
 if [ $? -ne 0 ]
 then
   echo "MySQL is not installed. Installing MySQL"
