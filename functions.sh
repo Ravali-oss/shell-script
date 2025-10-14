@@ -7,7 +7,7 @@ then
 fi
 dnf list installed mysql
 
-Validate (
+Validate ( ){
     if [ $1 -ne 0 ]
   then
     echo " $2 failed "
@@ -15,7 +15,7 @@ Validate (
   else
     echo "$2 is successful "
   fi
-)
+}
 
 if [ $? -ne 0 ]
 then
