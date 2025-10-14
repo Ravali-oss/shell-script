@@ -32,13 +32,7 @@ if [$? -ne 0 ]
 then
   echo "Git is not installed. Installing GIT"
   dnf install git -y
-  if [ $? -ne 0 ]
-  then
-    echo "GIT installation failed "
-    exit 1
-  else
-    echo "GIT installation is successful "
-  fi
+  Validate $? "GIT installation"
   systemctl start mysqld
   systemctl enable mysqld
 else
