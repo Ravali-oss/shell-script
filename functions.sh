@@ -1,13 +1,7 @@
 #!/bin/bash
-USERID = $(id -u)
-if [ $USERID -ne 0 ]
-then
-  echo "You need to run this script as root user"
-  exit 1
-fi
-dnf list installed mysql
+USERID=$(id -u)
 
-Validate ( ){
+Validate( ){
     if [ $1 -ne 0 ]
   then
     echo " $2 failed "
@@ -16,6 +10,14 @@ Validate ( ){
     echo "$2 is successful "
   fi
 }
+if [ $USERID -ne 0 ]
+then
+  echo "You need to run this script as root user"
+  exit 1
+fi
+
+dnf list installed mysql
+
 
 if [ $? -ne 0 ]
 then
@@ -27,6 +29,8 @@ then
 else
   echo "MySQL is already installed"
 fi
+
+dnf list installed git
 
 if [$? -ne 0 ]
 then
