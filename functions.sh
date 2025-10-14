@@ -1,6 +1,6 @@
 #!/bin/bash
-uid = $(id -u)
-if [ "$uid" -ne 0 ]
+USERID = $(id -u)
+if [ $USERID -ne 0 ]
 then
   echo "You need to run this script as root user"
   exit 1
