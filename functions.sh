@@ -7,17 +7,21 @@ then
 fi
 dnf list installed mysql
 
+Validate (
+    if [ $1 -ne 0 ]
+  then
+    echo " $2 failed "
+    exit 1
+  else
+    echo "$2 is successful "
+  fi
+)
+
 if [ $? -ne 0 ]
 then
   echo "MySQL is not installed. Installing MySQL"
   dnf install mysql-server -y
-  if [ $? -ne 0 ]
-  then
-    echo "MySQL installation failed "
-    exit 1
-  else
-    echo "MySQL installation is successful "
-  fi
+  Validate $? "MySQL installation"
   systemctl start mysqld
   systemctl enable mysqld
 else
