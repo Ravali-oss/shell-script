@@ -2,7 +2,7 @@
 
 USERID = $(id -u) //If uid -u =0 then, it is the root user
 
-if [ "$USERID" -ne 0 ]
+if [ $USERID -ne 0 ]
 then
   echo "You need to run this script as root user"
   exit 1
