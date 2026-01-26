@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USERID = $(id -u)
+USERID= $(id -u)
 
 if [ $USERID -ne 0 ]
 then
@@ -9,3 +9,4 @@ then
 else 
  dnf install nginix
 fi 
+
