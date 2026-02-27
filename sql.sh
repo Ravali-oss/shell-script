@@ -1,16 +1,16 @@
 #!/bin/bash
 
-USERID=$(id -u)
+USERID=$(id -u) # id -u -> It displays whether we are running with sudo access or not.if id -u is 0 then, we are having sudo access else not
 
 if [ $USERID -ne 0 ]
 then
     echo "ERROR:: You must have sudo access to execute this script"
-    exit 1 #other than 0
+    exit 1 #other than 0 # shell script doesnt exit automatically, it there is any error, it continues with the next steps. To exit it we need to provide the exit command
 fi
 
-dnf list installed mysql
+dnf list installed mysql 
 
-if [ $? -ne 0 ]
+if [ $? -ne 0 ] #$? it displays the exit status of the command. If it is success it shows zero.
 then # not installed
     dnf install mysql -y
     if [ $? -ne 0 ]
